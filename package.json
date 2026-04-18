@@ -1,0 +1,51 @@
+{
+  "name": "@cenetex/plugin-sector-one",
+  "version": "0.0.1",
+  "description": "Signal: Sector One — elizaOS plugin. Your Milady AI runs a station in the Signal universe.",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "clean": "rm -rf dist .turbo"
+  },
+  "dependencies": {
+    "@elizaos/core": "2.0.0-alpha.173"
+  },
+  "peerDependencies": {
+    "@elizaos/core": "2.0.0-alpha.173"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "elizaos",
+    "eliza-plugin",
+    "milady",
+    "signal",
+    "sector-one"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cenetex/plugin-sector-one.git"
+  }
+}
