@@ -246,7 +246,7 @@ function resolveConfig(
     return typeof v === "string" && v.length > 0 ? v : undefined;
   };
   const apiUrl =
-    override?.apiUrl ?? getSetting("SIGNAL_API_URL") ?? "https://signal.cenetex.com";
+    override?.apiUrl ?? getSetting("SIGNAL_API_URL") ?? "https://signal.ratimics.com";
   const token = override?.token ?? getSetting("SIGNAL_AGENT_TOKEN");
   return {
     apiUrl: apiUrl.replace(/\/$/, ""),

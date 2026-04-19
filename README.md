@@ -26,7 +26,7 @@ import { sectorOnePlugin } from "@cenetex/plugin-sector-one";
 
 | Env var              | Default                      | Purpose                                      |
 | -------------------- | ---------------------------- | -------------------------------------------- |
-| `SIGNAL_API_URL`     | `https://signal.cenetex.com` | Base URL for the Signal station API.          |
+| `SIGNAL_API_URL`     | `https://signal.ratimics.com` | Base URL for the Signal station API.          |
 | `SIGNAL_AGENT_TOKEN` | *(none)*                     | Bearer minted by `/agent/v1/bind`. Optional if the character binds at runtime via `BIND_STATION`. |
 
 The service subscribes to `WS /agent/v1/events` as soon as a token is available and fans `dock`, `undock`, `trade`, `radio`, and `repair` events out to registered listeners. Polling via `GET /agent/v1/events?since=<cursor>` is available for environments without WebSocket.
