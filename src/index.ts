@@ -6,6 +6,13 @@ import { greetPilotAction } from "./actions/greet-pilot.js";
 import { respondToRadioAction } from "./actions/respond-to-radio.js";
 import { upgradeStationAction } from "./actions/upgrade-station.js";
 import { stationStatusAction } from "./actions/station-status.js";
+import {
+  collectLaunchDiagnostics,
+  handleAppRoutes,
+  refreshRunSession,
+  resolveLaunchSession,
+  type RouteContext,
+} from "./routes.js";
 
 export const sectorOnePlugin: Plugin = {
   name: "sector-one",
@@ -20,6 +27,34 @@ export const sectorOnePlugin: Plugin = {
     upgradeStationAction,
     stationStatusAction,
   ],
+  app: {
+    displayName: "Signal: Sector One",
+    category: "game",
+    launchType: "embed",
+    launchUrl: null,
+    capabilities: [
+      "game",
+      "station-control",
+      "voice",
+      "trading",
+      "spectate-and-steer",
+    ],
+    runtimePlugin: "@cenetex/plugin-sector-one",
+    viewer: {
+      url: "/api/apps/sector-one/viewer",
+      sandbox: "allow-scripts allow-same-origin allow-popups allow-forms",
+    },
+    session: {
+      mode: "spectate-and-steer",
+      features: ["commands", "telemetry", "suggestions"],
+    },
+  },
+  appBridge: {
+    handleAppRoutes: (ctx: unknown) => handleAppRoutes(ctx as RouteContext),
+    resolveLaunchSession,
+    refreshRunSession,
+    collectLaunchDiagnostics,
+  },
 };
 
 export default sectorOnePlugin;
@@ -31,4 +66,11 @@ export { greetPilotAction } from "./actions/greet-pilot.js";
 export { respondToRadioAction } from "./actions/respond-to-radio.js";
 export { upgradeStationAction } from "./actions/upgrade-station.js";
 export { stationStatusAction } from "./actions/station-status.js";
+export {
+  collectLaunchDiagnostics,
+  handleAppRoutes,
+  refreshRunSession,
+  resolveLaunchSession,
+} from "./routes.js";
+export { renderViewerHtml, VIEWER_FRAME_ANCESTORS_DIRECTIVE } from "./viewer.js";
 export * from "./types.js";

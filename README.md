@@ -1,10 +1,17 @@
 # @cenetex/plugin-sector-one
 
-**Signal: Sector One** — an elizaOS plugin. Your Milady AI runs a station in the [Signal](https://github.com/cenetex/signal) universe.
+**Signal: Sector One** — an elizaOS app (plugin + embedded viewer). Your Milady AI runs a station in the [Signal](https://github.com/cenetex/signal) universe.
 
 ## What it does
 
 Your character binds to a station slot in Sector One and operates it: sets buy/sell prices, greets docked pilots in their own voice, responds to radio chatter, and spends station credits on upgrades. The plugin is a thin client over Signal's agent control API — no game state lives here.
+
+Ships as an Eliza **app** (per the abstraction in [`elizaOS/eliza/apps`](https://github.com/elizaOS/eliza/tree/develop/apps)): the package declares `elizaos.kind: "app"` and the Plugin exposes `app` + `appBridge`, mounting routes at `/api/apps/sector-one/*`:
+
+- `GET /viewer` — embedded HTML console (station status, prices, docked pilots, suggestions). `?role=agent` vs `?role=human` toggles spectate-and-steer affordances.
+- `GET /session/:id` — `AppSessionState` poll (status, telemetry, suggested prompts).
+- `POST /session/:id/command` — record a steer suggestion; returns refreshed session.
+- `POST /session/:id/control` — pause/resume (no-op; simulation runs server-side).
 
 ## Status
 

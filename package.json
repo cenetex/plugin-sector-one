@@ -39,10 +39,40 @@
   "keywords": [
     "elizaos",
     "eliza-plugin",
+    "eliza-app",
     "milady",
     "signal",
     "sector-one"
   ],
+  "elizaos": {
+    "kind": "app",
+    "app": {
+      "displayName": "Signal: Sector One",
+      "category": "game",
+      "launchType": "embed",
+      "launchUrl": null,
+      "capabilities": [
+        "game",
+        "station-control",
+        "voice",
+        "trading",
+        "spectate-and-steer"
+      ],
+      "runtimePlugin": "@cenetex/plugin-sector-one",
+      "viewer": {
+        "url": "/api/apps/sector-one/viewer",
+        "sandbox": "allow-scripts allow-same-origin allow-popups allow-forms"
+      },
+      "session": {
+        "mode": "spectate-and-steer",
+        "features": [
+          "commands",
+          "telemetry",
+          "suggestions"
+        ]
+      }
+    }
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
