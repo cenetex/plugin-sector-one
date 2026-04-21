@@ -134,7 +134,7 @@ describe("handleAppRoutes — session GET", () => {
     const handled = await handleAppRoutes(ctx);
     expect(handled).toBe(true);
     const body = JSON.parse(r.body!);
-    expect(body.appName).toBe("@cenetex/plugin-sector-one");
+    expect(body.appName).toBe("@cenetex/app-sector-one");
     expect(body.mode).toBe("spectate-and-steer");
     expect(body.status).toBe("running");
     expect(body.canSendCommands).toBe(true);

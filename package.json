@@ -1,6 +1,6 @@
 {
-  "name": "@cenetex/plugin-sector-one",
-  "version": "0.0.1",
+  "name": "@cenetex/app-sector-one",
+  "version": "0.1.0",
   "description": "Signal: Sector One — elizaOS plugin. Your Milady AI runs a station in the Signal universe.",
   "type": "module",
   "main": "dist/index.js",
@@ -58,7 +58,7 @@
         "trading",
         "spectate-and-steer"
       ],
-      "runtimePlugin": "@cenetex/plugin-sector-one",
+      "runtimePlugin": "@cenetex/app-sector-one",
       "viewer": {
         "url": "/api/apps/sector-one/viewer",
         "sandbox": "allow-scripts allow-same-origin allow-popups allow-forms"
