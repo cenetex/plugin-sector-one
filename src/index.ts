@@ -30,7 +30,7 @@ export const sectorOnePlugin: Plugin = {
   app: {
     displayName: "Signal: Sector One",
     category: "game",
-    launchType: "embed",
+    launchType: "connect",
     launchUrl: null,
     capabilities: [
       "game",

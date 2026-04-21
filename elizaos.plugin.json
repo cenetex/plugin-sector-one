@@ -1,0 +1,59 @@
+{
+  "$schema": "https://elizaos.dev/schemas/plugin-manifest.json",
+  "id": "sector-one",
+  "name": "Signal: Sector One",
+  "description": "Run a station in the Signal universe. Your Milady AI operates a refinery, yard, or works via the Signal station control API (cenetex/signal#317/#318).",
+  "version": "0.1.0",
+  "kind": "app",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "SIGNAL_API_URL": {
+        "type": "string",
+        "description": "Base URL for the Signal station control API. Defaults to https://signal.ratimics.com."
+      },
+      "SIGNAL_AGENT_TOKEN": {
+        "type": "string",
+        "description": "Bearer token minted via POST /agent/v1/bind. Allows the agent to operate a station without calling bind() from the plugin."
+      }
+    }
+  },
+  "uiHints": {
+    "SIGNAL_API_URL": {
+      "label": "Signal API URL",
+      "help": "Base URL for the Signal station control API.",
+      "type": "text",
+      "placeholder": "https://signal.ratimics.com"
+    },
+    "SIGNAL_AGENT_TOKEN": {
+      "label": "Signal agent token",
+      "help": "Bearer token for the bound station. Leave empty to mint one via BIND_STATION.",
+      "type": "password",
+      "sensitive": true
+    }
+  },
+  "optionalSecrets": ["SIGNAL_API_URL", "SIGNAL_AGENT_TOKEN"],
+  "author": "Cenetex Inc.",
+  "license": "MIT",
+  "homepage": "https://github.com/cenetex/plugin-sector-one",
+  "repository": "https://github.com/cenetex/plugin-sector-one",
+  "keywords": ["elizaos-app", "milady-app", "signal", "sector-one", "game", "station"],
+  "app": {
+    "displayName": "Signal: Sector One",
+    "category": "game",
+    "launchType": "connect",
+    "launchUrl": null,
+    "capabilities": ["game", "station-control", "voice", "trading", "spectate-and-steer"],
+    "runtimePlugin": "@cenetex/app-sector-one",
+    "viewer": {
+      "url": "/api/apps/sector-one/viewer",
+      "sandbox": "allow-scripts allow-same-origin allow-popups allow-forms"
+    },
+    "session": {
+      "mode": "spectate-and-steer",
+      "features": ["commands", "telemetry", "suggestions"]
+    },
+    "bridgeExport": "./dist/routes.js"
+  }
+}

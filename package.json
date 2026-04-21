@@ -11,13 +11,19 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./routes": {
+      "types": "./dist/routes.d.ts",
+      "import": "./dist/routes.js",
+      "default": "./dist/routes.js"
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "elizaos.plugin.json"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm --dts --clean",
+    "build": "tsup src/index.ts src/routes.ts --format esm --dts --clean",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
     "clean": "rm -rf dist .turbo"
@@ -49,7 +55,7 @@
     "app": {
       "displayName": "Signal: Sector One",
       "category": "game",
-      "launchType": "embed",
+      "launchType": "connect",
       "launchUrl": null,
       "capabilities": [
         "game",
@@ -70,7 +76,8 @@
           "telemetry",
           "suggestions"
         ]
-      }
+      },
+      "bridgeExport": "./dist/routes.js"
     }
   },
   "license": "MIT",
