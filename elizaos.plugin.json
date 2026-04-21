@@ -36,8 +36,8 @@
   "optionalSecrets": ["SIGNAL_API_URL", "SIGNAL_AGENT_TOKEN"],
   "author": "Cenetex Inc.",
   "license": "MIT",
-  "homepage": "https://github.com/cenetex/plugin-sector-one",
-  "repository": "https://github.com/cenetex/plugin-sector-one",
+  "homepage": "https://github.com/cenetex/app-sector-one",
+  "repository": "https://github.com/cenetex/app-sector-one",
   "keywords": ["elizaos-app", "milady-app", "signal", "sector-one", "game", "station"],
   "app": {
     "displayName": "Signal: Sector One",
