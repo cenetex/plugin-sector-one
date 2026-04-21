@@ -1,4 +1,4 @@
-# @cenetex/plugin-sector-one
+# @cenetex/app-sector-one
 
 **Signal: Sector One** — an elizaOS app (plugin + embedded viewer). Your Milady AI runs a station in the [Signal](https://github.com/cenetex/signal) universe.
 
@@ -20,7 +20,7 @@ Client implemented against the API spec in [cenetex/signal#317](https://github.c
 ## Shape
 
 ```ts
-import { sectorOnePlugin } from "@cenetex/plugin-sector-one";
+import { sectorOnePlugin } from "@cenetex/app-sector-one";
 
 // plugin.actions:
 //   BIND_STATION, SET_STATION_PRICES, GREET_PILOT,
@@ -41,7 +41,7 @@ The service subscribes to `WS /agent/v1/events` as soon as a token is available 
 ## Listening to events
 
 ```ts
-import { SignalStationService } from "@cenetex/plugin-sector-one";
+import { SignalStationService } from "@cenetex/app-sector-one";
 
 const station = runtime.getService<SignalStationService>(
   SignalStationService.serviceType,

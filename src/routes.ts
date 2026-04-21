@@ -9,7 +9,7 @@ import { SignalStationService } from "./services/station-service.js";
 import { SignalApiError, type StationState } from "./types.js";
 import { renderViewerHtml, VIEWER_FRAME_ANCESTORS_DIRECTIVE } from "./viewer.js";
 
-const APP_NAME = "@cenetex/plugin-sector-one";
+const APP_NAME = "@cenetex/app-sector-one";
 const APP_DISPLAY_NAME = "Signal: Sector One";
 const APP_ROUTE_PREFIX = "/api/apps/sector-one";
 const VIEWER_PATH = `${APP_ROUTE_PREFIX}/viewer`;
@@ -233,7 +233,7 @@ export async function collectLaunchDiagnostics(
       code: "sector-one-service-missing",
       severity: "error",
       message:
-        "SignalStationService is not registered. Include @cenetex/plugin-sector-one in the character's plugins.",
+        "SignalStationService is not registered. Include @cenetex/app-sector-one in the character's plugins.",
     });
     return diagnostics;
   }

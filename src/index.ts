@@ -39,7 +39,7 @@ export const sectorOnePlugin: Plugin = {
       "trading",
       "spectate-and-steer",
     ],
-    runtimePlugin: "@cenetex/plugin-sector-one",
+    runtimePlugin: "@cenetex/app-sector-one",
     viewer: {
       url: "/api/apps/sector-one/viewer",
       sandbox: "allow-scripts allow-same-origin allow-popups allow-forms",
